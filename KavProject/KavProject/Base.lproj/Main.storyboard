@@ -143,9 +143,14 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="second" id="u1e-5L-l1D"/>
                     <connections>
+                        <outlet property="bioTextView" destination="Kq8-IA-Jwz" id="VRp-8a-RTR"/>
                         <outlet property="bioTextViewWidthConstraint" destination="AsJ-jX-FAK" id="7Ju-oY-Ljk"/>
+                        <outlet property="dateOfBirthTextield" destination="yeR-bv-UhC" id="hEJ-TU-91W"/>
+                        <outlet property="emailTextField" destination="gAP-K2-g6t" id="d5v-Nc-aYV"/>
                         <outlet property="labeToTextFieldSpacingConstraint" destination="D0s-Db-VPe" id="s1W-gn-vim"/>
                         <outlet property="labelWidthConstraint" destination="nyx-dC-aYr" id="JLn-YB-inR"/>
+                        <outlet property="nameTextField" destination="BFe-LG-fNH" id="XhK-AT-7JH"/>
+                        <outlet property="surnameTextField" destination="1gE-uJ-hcU" id="rcE-XP-cP6"/>
                         <outlet property="textFieldWidthConstraint" destination="VGH-3K-f6K" id="B73-FN-RNu"/>
                     </connections>
                 </viewController>

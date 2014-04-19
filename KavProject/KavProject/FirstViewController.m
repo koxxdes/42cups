@@ -7,6 +7,7 @@
 //
 
 #import "FirstViewController.h"
+#import "SQLHelper.h"
 
 @interface FirstViewController ()
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *textFieldWidthConstraint;
@@ -14,6 +15,11 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *labeToTextFieldSpacingConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bioTextViewWidthConstraint;
 
+@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *surnameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *dateOfBirthTextield;
+@property (weak, nonatomic) IBOutlet UITextField *emailTextField;
+@property (weak, nonatomic) IBOutlet UITextView *bioTextView;
 @end
 
 @implementation FirstViewController{
@@ -24,6 +30,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    UserInfo *info = [[[SQLHelper alloc] init] getUserInfo];
+    self.nameTextField.text = info.name;
+    self.surnameTextField.text = info.surname;
+    self.emailTextField.text = info.email;
+    self.bioTextView.text = info.bio;
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"MMM dd yyyy"];
+    self.dateOfBirthTextield.text = [formatter stringFromDate:info.dateOfBirth];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 

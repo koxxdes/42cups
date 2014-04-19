@@ -26,7 +26,13 @@ describe(@"Testing db api ", ^{
     it(@"should return correct user info", ^{
         SQLHelper *helper = [[SQLHelper alloc] init];
         UserInfo *info = [helper getUserInfo];
-        [[info.name shouldNot] beNil];
+        [[info.name should] equal:@"Victor"];
+        [[info.surname should] equal:@"Z"];
+        [[info.email should] equal:@"koxxdes@gmail.com"];
+        [[info.bio should] equal:@"bioreactor №007"];
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"MMM dd yyyy"];
+        [[[formatter stringFromDate:info.dateOfBirth] should] equal:@"Mar 23 1991"];
     });
 });
 

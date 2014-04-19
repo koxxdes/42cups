@@ -24,8 +24,8 @@
 		57EA282C19025AAE003CC495 /* SQLTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 57EA282B19025AAE003CC495 /* SQLTest.m */; };
 		57EA283119025D2C003CC495 /* SQLHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 57EA283019025D2C003CC495 /* SQLHelper.m */; };
 		57EA283319025D59003CC495 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 57EA283219025D59003CC495 /* libsqlite3.dylib */; };
-		57EA283519025DC6003CC495 /* kavyarnya.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = 57EA283419025DC6003CC495 /* kavyarnya.sqlite3 */; };
 		57EA283819025DE3003CC495 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 57EA283719025DE3003CC495 /* UserInfo.m */; };
+		57EA283A19026A37003CC495 /* kavyarnya.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = 57EA283919026A37003CC495 /* kavyarnya.sqlite3 */; };
 		BD40FD9E690C42CF862F2E2D /* libPods-KavProjectTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 35BF5BD16E14450081626442 /* libPods-KavProjectTests.a */; };
 /* End PBXBuildFile section */
 
@@ -65,9 +65,9 @@
 		57EA282F19025D2C003CC495 /* SQLHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLHelper.h; sourceTree = "<group>"; };
 		57EA283019025D2C003CC495 /* SQLHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLHelper.m; sourceTree = "<group>"; };
 		57EA283219025D59003CC495 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		57EA283419025DC6003CC495 /* kavyarnya.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = kavyarnya.sqlite3; sourceTree = "<group>"; };
 		57EA283619025DE3003CC495 /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
 		57EA283719025DE3003CC495 /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
+		57EA283919026A37003CC495 /* kavyarnya.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = kavyarnya.sqlite3; sourceTree = "<group>"; };
 		CD048D77C22444E2A073D12C /* Pods-KavProjectTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KavProjectTests.xcconfig"; path = "Pods/Pods-KavProjectTests.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -187,9 +187,9 @@
 		57EA282E19025D1C003CC495 /* SQLModel */ = {
 			isa = PBXGroup;
 			children = (
+				57EA283919026A37003CC495 /* kavyarnya.sqlite3 */,
 				57EA282F19025D2C003CC495 /* SQLHelper.h */,
 				57EA283019025D2C003CC495 /* SQLHelper.m */,
-				57EA283419025DC6003CC495 /* kavyarnya.sqlite3 */,
 				57EA283619025DE3003CC495 /* UserInfo.h */,
 				57EA283719025DE3003CC495 /* UserInfo.m */,
 			);
@@ -276,7 +276,7 @@
 			files = (
 				57643E4819018DA800F57F1C /* Images.xcassets in Resources */,
 				57643E3719018DA800F57F1C /* InfoPlist.strings in Resources */,
-				57EA283519025DC6003CC495 /* kavyarnya.sqlite3 in Resources */,
+				57EA283A19026A37003CC495 /* kavyarnya.sqlite3 in Resources */,
 				57643E4019018DA800F57F1C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
