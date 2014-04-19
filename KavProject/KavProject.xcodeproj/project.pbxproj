@@ -21,7 +21,12 @@
 		57643E5019018DA800F57F1C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57643E2C19018DA800F57F1C /* Foundation.framework */; };
 		57643E5119018DA800F57F1C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57643E3019018DA800F57F1C /* UIKit.framework */; };
 		57643E5919018DA800F57F1C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 57643E5719018DA800F57F1C /* InfoPlist.strings */; };
-		57643E5B19018DA800F57F1C /* KavProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 57643E5A19018DA800F57F1C /* KavProjectTests.m */; };
+		57EA282C19025AAE003CC495 /* SQLTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 57EA282B19025AAE003CC495 /* SQLTest.m */; };
+		57EA283119025D2C003CC495 /* SQLHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 57EA283019025D2C003CC495 /* SQLHelper.m */; };
+		57EA283319025D59003CC495 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 57EA283219025D59003CC495 /* libsqlite3.dylib */; };
+		57EA283519025DC6003CC495 /* kavyarnya.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = 57EA283419025DC6003CC495 /* kavyarnya.sqlite3 */; };
+		57EA283819025DE3003CC495 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 57EA283719025DE3003CC495 /* UserInfo.m */; };
+		BD40FD9E690C42CF862F2E2D /* libPods-KavProjectTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 35BF5BD16E14450081626442 /* libPods-KavProjectTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		35BF5BD16E14450081626442 /* libPods-KavProjectTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KavProjectTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		57643E2919018DA800F57F1C /* KavProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KavProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57643E2C19018DA800F57F1C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		57643E2E19018DA800F57F1C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -55,7 +61,14 @@
 		57643E4E19018DA800F57F1C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		57643E5619018DA800F57F1C /* KavProjectTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KavProjectTests-Info.plist"; sourceTree = "<group>"; };
 		57643E5819018DA800F57F1C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		57643E5A19018DA800F57F1C /* KavProjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KavProjectTests.m; sourceTree = "<group>"; };
+		57EA282B19025AAE003CC495 /* SQLTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLTest.m; sourceTree = "<group>"; };
+		57EA282F19025D2C003CC495 /* SQLHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLHelper.h; sourceTree = "<group>"; };
+		57EA283019025D2C003CC495 /* SQLHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLHelper.m; sourceTree = "<group>"; };
+		57EA283219025D59003CC495 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		57EA283419025DC6003CC495 /* kavyarnya.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = kavyarnya.sqlite3; sourceTree = "<group>"; };
+		57EA283619025DE3003CC495 /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
+		57EA283719025DE3003CC495 /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
+		CD048D77C22444E2A073D12C /* Pods-KavProjectTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KavProjectTests.xcconfig"; path = "Pods/Pods-KavProjectTests.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57EA283319025D59003CC495 /* libsqlite3.dylib in Frameworks */,
 				57643E2F19018DA800F57F1C /* CoreGraphics.framework in Frameworks */,
 				57643E3119018DA800F57F1C /* UIKit.framework in Frameworks */,
 				57643E2D19018DA800F57F1C /* Foundation.framework in Frameworks */,
@@ -76,6 +90,7 @@
 				57643E4F19018DA800F57F1C /* XCTest.framework in Frameworks */,
 				57643E5119018DA800F57F1C /* UIKit.framework in Frameworks */,
 				57643E5019018DA800F57F1C /* Foundation.framework in Frameworks */,
+				BD40FD9E690C42CF862F2E2D /* libPods-KavProjectTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +104,7 @@
 				57643E5419018DA800F57F1C /* KavProjectTests */,
 				57643E2B19018DA800F57F1C /* Frameworks */,
 				57643E2A19018DA800F57F1C /* Products */,
+				CD048D77C22444E2A073D12C /* Pods-KavProjectTests.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -104,10 +120,12 @@
 		57643E2B19018DA800F57F1C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				57EA283219025D59003CC495 /* libsqlite3.dylib */,
 				57643E2C19018DA800F57F1C /* Foundation.framework */,
 				57643E2E19018DA800F57F1C /* CoreGraphics.framework */,
 				57643E3019018DA800F57F1C /* UIKit.framework */,
 				57643E4E19018DA800F57F1C /* XCTest.framework */,
+				35BF5BD16E14450081626442 /* libPods-KavProjectTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -115,13 +133,11 @@
 		57643E3219018DA800F57F1C /* KavProject */ = {
 			isa = PBXGroup;
 			children = (
+				57EA282E19025D1C003CC495 /* SQLModel */,
 				57643E3B19018DA800F57F1C /* AppDelegate.h */,
 				57643E3C19018DA800F57F1C /* AppDelegate.m */,
 				57643E3E19018DA800F57F1C /* Main.storyboard */,
-				57643E4119018DA800F57F1C /* FirstViewController.h */,
-				57643E4219018DA800F57F1C /* FirstViewController.m */,
-				57643E4419018DA800F57F1C /* SecondViewController.h */,
-				57643E4519018DA800F57F1C /* SecondViewController.m */,
+				57EA282D19025D0F003CC495 /* ViewControllers */,
 				57643E4719018DA800F57F1C /* Images.xcassets */,
 				57643E3319018DA800F57F1C /* Supporting Files */,
 			);
@@ -142,8 +158,8 @@
 		57643E5419018DA800F57F1C /* KavProjectTests */ = {
 			isa = PBXGroup;
 			children = (
-				57643E5A19018DA800F57F1C /* KavProjectTests.m */,
 				57643E5519018DA800F57F1C /* Supporting Files */,
+				57EA282B19025AAE003CC495 /* SQLTest.m */,
 			);
 			path = KavProjectTests;
 			sourceTree = "<group>";
@@ -155,6 +171,29 @@
 				57643E5719018DA800F57F1C /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		57EA282D19025D0F003CC495 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				57643E4119018DA800F57F1C /* FirstViewController.h */,
+				57643E4219018DA800F57F1C /* FirstViewController.m */,
+				57643E4419018DA800F57F1C /* SecondViewController.h */,
+				57643E4519018DA800F57F1C /* SecondViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		57EA282E19025D1C003CC495 /* SQLModel */ = {
+			isa = PBXGroup;
+			children = (
+				57EA282F19025D2C003CC495 /* SQLHelper.h */,
+				57EA283019025D2C003CC495 /* SQLHelper.m */,
+				57EA283419025DC6003CC495 /* kavyarnya.sqlite3 */,
+				57EA283619025DE3003CC495 /* UserInfo.h */,
+				57EA283719025DE3003CC495 /* UserInfo.m */,
+			);
+			name = SQLModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,9 +220,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 57643E6119018DA800F57F1C /* Build configuration list for PBXNativeTarget "KavProjectTests" */;
 			buildPhases = (
+				1E024230D0F6452EADEC5A4C /* Check Pods Manifest.lock */,
 				57643E4919018DA800F57F1C /* Sources */,
 				57643E4A19018DA800F57F1C /* Frameworks */,
 				57643E4B19018DA800F57F1C /* Resources */,
+				5F265BBF504E4E5BA5F8DDD9 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -235,6 +276,7 @@
 			files = (
 				57643E4819018DA800F57F1C /* Images.xcassets in Resources */,
 				57643E3719018DA800F57F1C /* InfoPlist.strings in Resources */,
+				57EA283519025DC6003CC495 /* kavyarnya.sqlite3 in Resources */,
 				57643E4019018DA800F57F1C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -249,14 +291,49 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1E024230D0F6452EADEC5A4C /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5F265BBF504E4E5BA5F8DDD9 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-KavProjectTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		57643E2519018DA800F57F1C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				57643E4619018DA800F57F1C /* SecondViewController.m in Sources */,
+				57EA283119025D2C003CC495 /* SQLHelper.m in Sources */,
 				57643E3D19018DA800F57F1C /* AppDelegate.m in Sources */,
 				57643E4319018DA800F57F1C /* FirstViewController.m in Sources */,
+				57EA283819025DE3003CC495 /* UserInfo.m in Sources */,
 				57643E3919018DA800F57F1C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,7 +342,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57643E5B19018DA800F57F1C /* KavProjectTests.m in Sources */,
+				57EA282C19025AAE003CC495 /* SQLTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +482,7 @@
 		};
 		57643E6219018DA800F57F1C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD048D77C22444E2A073D12C /* Pods-KavProjectTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/KavProject.app/KavProject";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -427,6 +505,7 @@
 		};
 		57643E6319018DA800F57F1C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD048D77C22444E2A073D12C /* Pods-KavProjectTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/KavProject.app/KavProject";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -462,6 +541,7 @@
 				57643E6019018DA800F57F1C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		57643E6119018DA800F57F1C /* Build configuration list for PBXNativeTarget "KavProjectTests" */ = {
 			isa = XCConfigurationList;
@@ -470,6 +550,7 @@
 				57643E6319018DA800F57F1C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
