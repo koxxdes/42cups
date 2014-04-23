@@ -13,5 +13,6 @@
 @interface SQLHelper : NSObject
 
 -(UserInfo *)getUserInfo;
+-(void)updateUserInfo:(UserInfo*)info;
 
 @end

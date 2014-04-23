@@ -16,5 +16,6 @@
 @property (strong, nonatomic) NSString *email;
 @property (strong, nonatomic) NSString *bio;
 @property (strong, nonatomic) NSDate *dateOfBirth;
+@property (strong, nonatomic) NSData *picture;
 
 @end

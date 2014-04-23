@@ -25,6 +25,23 @@
     return self;
 }
 
+-(void)updateUserInfo:(UserInfo *)info
+{
+    NSString *query = @"UPDATE user AS u SET name = ?, surname = ?, email = ?, bio = ?, birth = ? WHERE u.id = 0";
+    sqlite3_stmt *statement;
+    if (sqlite3_prepare(_database, [query UTF8String], -1, &statement, nil) == SQLITE_OK) {
+        sqlite3_bind_text(statement, 0, [info.name UTF8String], -1, nil);
+        sqlite3_bind_text(statement, 1, [info.surname UTF8String], -1, nil);
+        sqlite3_bind_text(statement, 2, [info.email UTF8String], -1, nil);
+        sqlite3_bind_text(statement, 3, [info.bio UTF8String], -1, nil);
+        sqlite3_bind_int(statement, 4, [info.dateOfBirth timeIntervalSince1970]);
+        if (sqlite3_step(statement) != SQLITE_DONE) {
+            NSLog(@"update error");
+        }
+        sqlite3_finalize(statement);
+    }
+}
+
 -(UserInfo *)getUserInfo
 {
     UserInfo *info = [[UserInfo alloc] init];
