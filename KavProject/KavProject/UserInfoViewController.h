@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FacebookUserInfoProtocol.h"
 
-@interface UserInfoViewController : UIViewController
+@interface UserInfoViewController : UIViewController<FacebookUserInfoProtocol>
 
 @end

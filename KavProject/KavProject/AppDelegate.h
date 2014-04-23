@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <FacebookSDK/FacebookSDK.h>
+#import "FacebookModel.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, FacebookNetworkProtocol>
 
 @property (strong, nonatomic) UIWindow *window;
 
--(void)sessionStateChanged:(FBSession *)session state:(FBSessionState)state error:(NSError *)error;
+@property (strong, nonatomic) FacebookModel *networkModel;
+
+@property (nonatomic) BOOL isInternetConnected;
 
 @end

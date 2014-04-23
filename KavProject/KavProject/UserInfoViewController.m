@@ -24,6 +24,8 @@
 @property (weak, nonatomic) IBOutlet UITextView *bioTextView;
 
 @property (strong, nonatomic) SQLHelper *helper;
+@property (strong, nonatomic) FacebookModel *networkModel;
+
 @end
 
 @implementation UserInfoViewController{
@@ -35,18 +37,15 @@
 {
     [super viewDidLoad];
     self.helper = [[SQLHelper alloc] init];
+    AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    self.networkModel = delegate.networkModel;
+    self.networkModel.userDelegate = self;
     
-    [FBRequestConnection startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-        if (!error) {
-            // Success! Include your code to handle the results here
-            NSLog(@"user info: %@", result);
-            [self updateUserInfo:result];
-        } else {
-            // An error occurred, we need to handle the error
-            // See: https://developers.facebook.com/docs/ios/errors
-        }
-    }];
-    
+    if (self.networkModel.wasLoginWithExistingSession) {
+        [self updateUI:[self.helper getUserInfo]];
+    }else{
+        [self.networkModel requestUserInfo];
+    }
 	// Do any additional setup after loading the view, typically from a nib.
 }
 

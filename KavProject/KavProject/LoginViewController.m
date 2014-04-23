@@ -28,13 +28,9 @@
 }
 
 - (IBAction)loginButtonTapped:(UIButton *)sender {
-    if ([FBSession activeSession].state == FBSessionStateOpen || [FBSession activeSession].state == FBSessionStateOpenTokenExtended) {
-        [[FBSession activeSession] closeAndClearTokenInformation];
-    }else{
-        [FBSession openActiveSessionWithReadPermissions:@[@"basic_info", @"email", @"user_birthday", @"user_photos"] allowLoginUI:YES completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
-            AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-            [delegate sessionStateChanged:session state:status error:error];
-        }];
+    AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    if (delegate.isInternetConnected) {
+        [delegate.networkModel loginWithNewSession];
     }
 }
 

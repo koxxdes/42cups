@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		570FF76F1906A30C006CC9F3 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 570FF76E1906A30B006CC9F3 /* FacebookSDK.framework */; };
 		570FF7721906A4A5006CC9F3 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 570FF7711906A4A5006CC9F3 /* LoginViewController.m */; };
+		573139C01907E18500453257 /* FacebookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 573139BF1907E18500453257 /* FacebookModel.m */; };
+		573139C31907ED0500453257 /* kavyarnya.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = 573139C21907ED0500453257 /* kavyarnya.sqlite3 */; };
+		573139C61907F13500453257 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 573139C51907F13500453257 /* SystemConfiguration.framework */; };
+		573139C91907F23A00453257 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 573139C81907F23A00453257 /* Reachability.m */; };
 		57643E2D19018DA800F57F1C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57643E2C19018DA800F57F1C /* Foundation.framework */; };
 		57643E2F19018DA800F57F1C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57643E2E19018DA800F57F1C /* CoreGraphics.framework */; };
 		57643E3119018DA800F57F1C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57643E3019018DA800F57F1C /* UIKit.framework */; };
@@ -27,7 +31,6 @@
 		57EA283119025D2C003CC495 /* SQLHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 57EA283019025D2C003CC495 /* SQLHelper.m */; };
 		57EA283319025D59003CC495 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 57EA283219025D59003CC495 /* libsqlite3.dylib */; };
 		57EA283819025DE3003CC495 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 57EA283719025DE3003CC495 /* UserInfo.m */; };
-		57EA283A19026A37003CC495 /* kavyarnya.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = 57EA283919026A37003CC495 /* kavyarnya.sqlite3 */; };
 		BD40FD9E690C42CF862F2E2D /* libPods-KavProjectTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 35BF5BD16E14450081626442 /* libPods-KavProjectTests.a */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +49,14 @@
 		570FF76E1906A30B006CC9F3 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		570FF7701906A4A5006CC9F3 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		570FF7711906A4A5006CC9F3 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		573139BE1907E18500453257 /* FacebookModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookModel.h; sourceTree = "<group>"; };
+		573139BF1907E18500453257 /* FacebookModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookModel.m; sourceTree = "<group>"; };
+		573139C11907E2A300453257 /* FacebookNetworkProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FacebookNetworkProtocol.h; sourceTree = "<group>"; };
+		573139C21907ED0500453257 /* kavyarnya.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = kavyarnya.sqlite3; sourceTree = "<group>"; };
+		573139C41907EF9200453257 /* FacebookUserInfoProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FacebookUserInfoProtocol.h; sourceTree = "<group>"; };
+		573139C51907F13500453257 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		573139C71907F23A00453257 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		573139C81907F23A00453257 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		57643E2919018DA800F57F1C /* KavProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KavProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57643E2C19018DA800F57F1C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		57643E2E19018DA800F57F1C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -72,7 +83,6 @@
 		57EA283219025D59003CC495 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		57EA283619025DE3003CC495 /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
 		57EA283719025DE3003CC495 /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
-		57EA283919026A37003CC495 /* kavyarnya.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = kavyarnya.sqlite3; sourceTree = "<group>"; };
 		CD048D77C22444E2A073D12C /* Pods-KavProjectTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KavProjectTests.xcconfig"; path = "Pods/Pods-KavProjectTests.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				573139C61907F13500453257 /* SystemConfiguration.framework in Frameworks */,
 				57EA283319025D59003CC495 /* libsqlite3.dylib in Frameworks */,
 				570FF76F1906A30C006CC9F3 /* FacebookSDK.framework in Frameworks */,
 				57643E2F19018DA800F57F1C /* CoreGraphics.framework in Frameworks */,
@@ -103,6 +114,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		573139BD1907E16500453257 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				573139BE1907E18500453257 /* FacebookModel.h */,
+				573139BF1907E18500453257 /* FacebookModel.m */,
+				573139C11907E2A300453257 /* FacebookNetworkProtocol.h */,
+				573139C41907EF9200453257 /* FacebookUserInfoProtocol.h */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
 		57643E2019018DA800F57F1C = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +148,7 @@
 		57643E2B19018DA800F57F1C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				573139C51907F13500453257 /* SystemConfiguration.framework */,
 				570FF76E1906A30B006CC9F3 /* FacebookSDK.framework */,
 				57EA283219025D59003CC495 /* libsqlite3.dylib */,
 				57643E2C19018DA800F57F1C /* Foundation.framework */,
@@ -140,6 +163,7 @@
 		57643E3219018DA800F57F1C /* KavProject */ = {
 			isa = PBXGroup;
 			children = (
+				573139BD1907E16500453257 /* Network */,
 				57EA282E19025D1C003CC495 /* SQLModel */,
 				57643E3B19018DA800F57F1C /* AppDelegate.h */,
 				57643E3C19018DA800F57F1C /* AppDelegate.m */,
@@ -154,6 +178,8 @@
 		57643E3319018DA800F57F1C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				573139C71907F23A00453257 /* Reachability.h */,
+				573139C81907F23A00453257 /* Reachability.m */,
 				57643E3419018DA800F57F1C /* KavProject-Info.plist */,
 				57643E3519018DA800F57F1C /* InfoPlist.strings */,
 				57643E3819018DA800F57F1C /* main.m */,
@@ -196,7 +222,7 @@
 		57EA282E19025D1C003CC495 /* SQLModel */ = {
 			isa = PBXGroup;
 			children = (
-				57EA283919026A37003CC495 /* kavyarnya.sqlite3 */,
+				573139C21907ED0500453257 /* kavyarnya.sqlite3 */,
 				57EA282F19025D2C003CC495 /* SQLHelper.h */,
 				57EA283019025D2C003CC495 /* SQLHelper.m */,
 				57EA283619025DE3003CC495 /* UserInfo.h */,
@@ -285,7 +311,7 @@
 			files = (
 				57643E4819018DA800F57F1C /* Images.xcassets in Resources */,
 				57643E3719018DA800F57F1C /* InfoPlist.strings in Resources */,
-				57EA283A19026A37003CC495 /* kavyarnya.sqlite3 in Resources */,
+				573139C31907ED0500453257 /* kavyarnya.sqlite3 in Resources */,
 				57643E4019018DA800F57F1C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -343,7 +369,9 @@
 				57643E3D19018DA800F57F1C /* AppDelegate.m in Sources */,
 				57643E4319018DA800F57F1C /* UserInfoViewController.m in Sources */,
 				570FF7721906A4A5006CC9F3 /* LoginViewController.m in Sources */,
+				573139C01907E18500453257 /* FacebookModel.m in Sources */,
 				57EA283819025DE3003CC495 /* UserInfo.m in Sources */,
+				573139C91907F23A00453257 /* Reachability.m in Sources */,
 				57643E3919018DA800F57F1C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
