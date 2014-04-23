@@ -8,6 +8,7 @@
 
 #import "Kiwi.h"
 #import "SQLHelper.h"
+UserInfo * storedInfo;
 
 SPEC_BEGIN(SQLTestConnection)
 
@@ -26,13 +27,38 @@ describe(@"Testing db api ", ^{
     it(@"should return correct user info", ^{
         SQLHelper *helper = [[SQLHelper alloc] init];
         UserInfo *info = [helper getUserInfo];
-        [[info.name should] equal:@"Victor"];
-        [[info.surname should] equal:@"Z"];
-        [[info.email should] equal:@"koxxdes@gmail.com"];
-        [[info.bio should] equal:@"bioreactor №007"];
+        storedInfo = info;
+        [[info.name shouldNot] beNil];
+        [[info.surname shouldNot] beNil];
+        [[info.email shouldNot] beNil];
+        [[info.bio shouldNot] beNil];
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat:@"MMM dd yyyy"];
-        [[[formatter stringFromDate:info.dateOfBirth] should] equal:@"Mar 23 1991"];
+        [[[formatter stringFromDate:info.dateOfBirth] shouldNot] beNil];
+    });
+});
+
+SPEC_END
+
+SPEC_BEGIN(SQLTestSetInfo)
+
+describe(@"Testing db api ", ^{
+    it(@"should save user info", ^{
+        UserInfo *info = [[UserInfo alloc] init];
+        info.name = @"test";
+        info.surname = @"test1";
+        info.email = @"test3";
+        info.bio = @"test4";
+        
+        SQLHelper *helper = [[SQLHelper alloc] init];
+        [helper updateUserInfo:info];
+        info = [helper getUserInfo];
+        [[info.name should] equal:@"test"];
+        [[info.surname should] equal:@"test1"];
+        [[info.email should] equal:@"test3"];
+        [[info.bio should] equal:@"test4"];
+
+        [helper updateUserInfo:storedInfo];
     });
 });
 

@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FacebookModel.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, FacebookNetworkProtocol>
 
 @property (strong, nonatomic) UIWindow *window;
+
+@property (strong, nonatomic) FacebookModel *networkModel;
+
+@property (nonatomic) BOOL isInternetConnected;
 
 @end
