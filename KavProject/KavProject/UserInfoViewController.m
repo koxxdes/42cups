@@ -154,7 +154,7 @@
     userInfo.surname = self.surnameTextField.text;
     userInfo.email = self.emailTextField.text;
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"mm/dd/yyyy"];
+    [formatter setDateFormat:@"dd/mm/yyyy"];
     userInfo.dateOfBirth = [formatter dateFromString:self.dateOfBirthTextield.text];
     
     __weak UserInfoViewController *wSelf = self;
