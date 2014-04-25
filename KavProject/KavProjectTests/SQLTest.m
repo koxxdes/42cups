@@ -33,7 +33,7 @@ describe(@"Testing db api ", ^{
         [[info.email shouldNot] beNil];
         [[info.bio shouldNot] beNil];
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-        [formatter setDateFormat:@"MMM dd yyyy"];
+        [formatter setDateFormat:@"dd/mm/yyyy"];
         [[[formatter stringFromDate:info.dateOfBirth] shouldNot] beNil];
     });
 });
