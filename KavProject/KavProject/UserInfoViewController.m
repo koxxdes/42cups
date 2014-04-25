@@ -9,6 +9,7 @@
 #import "UserInfoViewController.h"
 #import "SQLHelper.h"
 #import "AppDelegate.h"
+#import "InputValidator.h"
 
 @interface UserInfoViewController ()
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *textFieldWidthConstraint;
@@ -23,8 +24,14 @@
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextView *bioTextView;
 
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
 @property (strong, nonatomic) SQLHelper *helper;
 @property (strong, nonatomic) FacebookModel *networkModel;
+@property (strong, nonatomic) InputValidator *validator;
+
+@property (strong, nonatomic) UIGestureRecognizer *recognizer;
+@property (weak, nonatomic) UITextField *currentTextView;
 
 @end
 
@@ -46,7 +53,114 @@
     }else{
         [self.networkModel requestUserInfo];
     }
-	// Do any additional setup after loading the view, typically from a nib.
+    
+    self.validator = [[InputValidator alloc] init];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    self.recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard:)];
+    [self.view addGestureRecognizer:self.recognizer];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardWillShowNotification
+                                                  object:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardWillHideNotification
+                                                  object:nil];
+    [self.view removeGestureRecognizer:self.recognizer];
+}
+
+-(void)dismissKeyboard:(UITapGestureRecognizer *)recognizer
+{
+    [self.currentTextView resignFirstResponder];
+}
+
+-(void)keyboardWillShow:(NSNotification *)aNotification{
+    NSDictionary* info = [aNotification userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, self.interfaceOrientation == UIInterfaceOrientationPortrait ?  kbSize.height : kbSize.width, 0.0);
+    self.scrollView.contentInset = contentInsets;
+    self.scrollView.scrollIndicatorInsets = contentInsets;
+    
+    // If active text field is hidden by keyboard, scroll it so it's visible
+    // Your app might not need or want this behavior.
+    //CGRect aRect = self.view.bounds;
+    //aRect.size.height -= kbSize.height;
+    //if (!CGRectContainsPoint(aRect, self.currentTextView.frame.origin) ) {
+        [self.scrollView scrollRectToVisible:CGRectMake(self.currentTextView.frame.origin.x, self.currentTextView.frame.origin.y, 10, 10) animated:YES];
+    //}
+}
+
+-(void)keyboardWillHide:(NSNotification *)aNotification{
+    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
+    self.scrollView.contentInset = contentInsets;
+    self.scrollView.scrollIndicatorInsets = contentInsets;
+    [self.scrollView scrollRectToVisible:CGRectMake(0, 0, 10, 10) animated:YES];
+    
+    AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+            if (![self.validator isValidName:self.nameTextField.text]) {
+                [delegate showMessage:@"Name error" withTitle:@"Please enter correct name"];
+                return;
+            }
+            if (![self.validator isValidSurname:self.surnameTextField.text]) {
+                [delegate showMessage:@"Surname error" withTitle:@"Please enter correct surname"];
+                return;
+            }
+            if (![self.validator isValidBirthday:self.dateOfBirthTextield.text]) {
+                [delegate showMessage:@"Birthday error" withTitle:@"Please enter correct date"];
+                return;
+            }
+            if (![self.validator isValidEmail:self.emailTextField.text]) {
+                [delegate showMessage:@"Email error" withTitle:@"Please enter correct email"];
+                return;
+            }
+    [self updateUserInfoFromInput];
+}
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    self.currentTextView = textField;
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField*)textField;
+{
+    NSInteger nextTag = textField.tag + 1;
+    // Try to find next responder
+    UIResponder* nextResponder = [textField.superview viewWithTag:nextTag];
+    if (nextResponder) {
+        // Found next responder, so set it.
+        [nextResponder becomeFirstResponder];
+    } else {
+        // Not found, so remove keyboard.
+        [textField resignFirstResponder];
+    }
+    return NO; // We do not want UITextField to insert line-breaks.
+}
+
+-(void)updateUserInfoFromInput
+{
+    UserInfo *userInfo = [self.helper getUserInfo];
+    userInfo.name = self.nameTextField.text;
+    userInfo.surname = self.surnameTextField.text;
+    userInfo.email = self.emailTextField.text;
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"mm/dd/yyyy"];
+    userInfo.dateOfBirth = [formatter dateFromString:self.dateOfBirthTextield.text];
+    
+    __weak UserInfoViewController *wSelf = self;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [wSelf.helper updateUserInfo:userInfo];
+    });
 }
 
 -(void)updateUserInfo:(NSDictionary *)info
