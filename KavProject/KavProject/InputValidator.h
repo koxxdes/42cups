@@ -13,6 +13,6 @@
 -(BOOL)isValidName:(NSString *)name;
 -(BOOL)isValidSurname:(NSString *)surname;
 -(BOOL)isValidEmail:(NSString *)email;
--(BOOL)isValidBirthday:(NSDate *)birthday;
+-(BOOL)isValidBirthday:(NSString *)birthday;
 
 @end

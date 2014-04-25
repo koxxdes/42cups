@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "FacebookUserInfoProtocol.h"
 
-@interface UserInfoViewController : UIViewController<FacebookUserInfoProtocol>
+@interface UserInfoViewController : UIViewController<FacebookUserInfoProtocol, UITextFieldDelegate>
 
 @end
