@@ -20,7 +20,7 @@
     return NO;
 }
 
--(BOOL)isValidName:(NSString *)name
+-(BOOL)isValidEmail:(NSString *)name
 {
     return NO;
 }
