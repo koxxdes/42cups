@@ -23,12 +23,16 @@
 		57643E3D19018DA800F57F1C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 57643E3C19018DA800F57F1C /* AppDelegate.m */; };
 		57643E4019018DA800F57F1C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57643E3E19018DA800F57F1C /* Main.storyboard */; };
 		57643E4319018DA800F57F1C /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57643E4219018DA800F57F1C /* UserInfoViewController.m */; };
-		57643E4619018DA800F57F1C /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57643E4519018DA800F57F1C /* SecondViewController.m */; };
+		57643E4619018DA800F57F1C /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57643E4519018DA800F57F1C /* FriendsViewController.m */; };
 		57643E4819018DA800F57F1C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57643E4719018DA800F57F1C /* Images.xcassets */; };
 		57643E4F19018DA800F57F1C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57643E4E19018DA800F57F1C /* XCTest.framework */; };
 		57643E5019018DA800F57F1C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57643E2C19018DA800F57F1C /* Foundation.framework */; };
 		57643E5119018DA800F57F1C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57643E3019018DA800F57F1C /* UIKit.framework */; };
 		57643E5919018DA800F57F1C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 57643E5719018DA800F57F1C /* InfoPlist.strings */; };
+		577E9622190E698B00C64303 /* FacebookFriend.m in Sources */ = {isa = PBXBuildFile; fileRef = 577E9621190E698B00C64303 /* FacebookFriend.m */; };
+		577E9625190E71DD00C64303 /* FriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 577E9624190E71DD00C64303 /* FriendTableViewCell.m */; };
+		577E9628190E7C3B00C64303 /* FriendsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 577E9627190E7C3B00C64303 /* FriendsTest.m */; };
+		577E9629190E7D6800C64303 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 570FF76E1906A30B006CC9F3 /* FacebookSDK.framework */; };
 		57EA282C19025AAE003CC495 /* SQLTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 57EA282B19025AAE003CC495 /* SQLTest.m */; };
 		57EA283119025D2C003CC495 /* SQLHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 57EA283019025D2C003CC495 /* SQLHelper.m */; };
 		57EA283319025D59003CC495 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 57EA283219025D59003CC495 /* libsqlite3.dylib */; };
@@ -75,13 +79,18 @@
 		57643E3F19018DA800F57F1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		57643E4119018DA800F57F1C /* UserInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
 		57643E4219018DA800F57F1C /* UserInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
-		57643E4419018DA800F57F1C /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		57643E4519018DA800F57F1C /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		57643E4419018DA800F57F1C /* FriendsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendsViewController.h; sourceTree = "<group>"; };
+		57643E4519018DA800F57F1C /* FriendsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendsViewController.m; sourceTree = "<group>"; };
 		57643E4719018DA800F57F1C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		57643E4D19018DA800F57F1C /* KavProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KavProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		57643E4E19018DA800F57F1C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		57643E5619018DA800F57F1C /* KavProjectTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KavProjectTests-Info.plist"; sourceTree = "<group>"; };
 		57643E5819018DA800F57F1C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		577E9620190E698B00C64303 /* FacebookFriend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookFriend.h; sourceTree = "<group>"; };
+		577E9621190E698B00C64303 /* FacebookFriend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookFriend.m; sourceTree = "<group>"; };
+		577E9623190E71DD00C64303 /* FriendTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendTableViewCell.h; sourceTree = "<group>"; };
+		577E9624190E71DD00C64303 /* FriendTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendTableViewCell.m; sourceTree = "<group>"; };
+		577E9627190E7C3B00C64303 /* FriendsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsTest.m; sourceTree = "<group>"; };
 		57EA282B19025AAE003CC495 /* SQLTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLTest.m; sourceTree = "<group>"; };
 		57EA282F19025D2C003CC495 /* SQLHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLHelper.h; sourceTree = "<group>"; };
 		57EA283019025D2C003CC495 /* SQLHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLHelper.m; sourceTree = "<group>"; };
@@ -111,6 +120,7 @@
 			files = (
 				57643E4F19018DA800F57F1C /* XCTest.framework in Frameworks */,
 				57643E5119018DA800F57F1C /* UIKit.framework in Frameworks */,
+				577E9629190E7D6800C64303 /* FacebookSDK.framework in Frameworks */,
 				57643E5019018DA800F57F1C /* Foundation.framework in Frameworks */,
 				BD40FD9E690C42CF862F2E2D /* libPods-KavProjectTests.a in Frameworks */,
 			);
@@ -126,6 +136,8 @@
 				573139BF1907E18500453257 /* FacebookModel.m */,
 				573139C11907E2A300453257 /* FacebookNetworkProtocol.h */,
 				573139C41907EF9200453257 /* FacebookUserInfoProtocol.h */,
+				577E9620190E698B00C64303 /* FacebookFriend.h */,
+				577E9621190E698B00C64303 /* FacebookFriend.m */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -209,6 +221,7 @@
 				57643E5519018DA800F57F1C /* Supporting Files */,
 				57EA282B19025AAE003CC495 /* SQLTest.m */,
 				573139D2190A6AEB00453257 /* ValidationTest.m */,
+				577E9627190E7C3B00C64303 /* FriendsTest.m */,
 			);
 			path = KavProjectTests;
 			sourceTree = "<group>";
@@ -227,10 +240,12 @@
 			children = (
 				57643E4119018DA800F57F1C /* UserInfoViewController.h */,
 				57643E4219018DA800F57F1C /* UserInfoViewController.m */,
-				57643E4419018DA800F57F1C /* SecondViewController.h */,
-				57643E4519018DA800F57F1C /* SecondViewController.m */,
+				57643E4419018DA800F57F1C /* FriendsViewController.h */,
+				57643E4519018DA800F57F1C /* FriendsViewController.m */,
 				570FF7701906A4A5006CC9F3 /* LoginViewController.h */,
 				570FF7711906A4A5006CC9F3 /* LoginViewController.m */,
+				577E9623190E71DD00C64303 /* FriendTableViewCell.h */,
+				577E9624190E71DD00C64303 /* FriendTableViewCell.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -380,12 +395,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57643E4619018DA800F57F1C /* SecondViewController.m in Sources */,
+				57643E4619018DA800F57F1C /* FriendsViewController.m in Sources */,
 				57EA283119025D2C003CC495 /* SQLHelper.m in Sources */,
 				57643E3D19018DA800F57F1C /* AppDelegate.m in Sources */,
 				57643E4319018DA800F57F1C /* UserInfoViewController.m in Sources */,
 				570FF7721906A4A5006CC9F3 /* LoginViewController.m in Sources */,
 				573139C01907E18500453257 /* FacebookModel.m in Sources */,
+				577E9622190E698B00C64303 /* FacebookFriend.m in Sources */,
+				577E9625190E71DD00C64303 /* FriendTableViewCell.m in Sources */,
 				57EA283819025DE3003CC495 /* UserInfo.m in Sources */,
 				573139C91907F23A00453257 /* Reachability.m in Sources */,
 				57643E3919018DA800F57F1C /* main.m in Sources */,
@@ -398,6 +415,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				573139D3190A6AEB00453257 /* ValidationTest.m in Sources */,
+				577E9628190E7C3B00C64303 /* FriendsTest.m in Sources */,
 				57EA282C19025AAE003CC495 /* SQLTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -553,6 +571,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KavProject/KavProject-Prefix.pch";
@@ -576,6 +595,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KavProject/KavProject-Prefix.pch";

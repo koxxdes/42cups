@@ -10,6 +10,7 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import "FacebookNetworkProtocol.h"
 #import "FacebookUserInfoProtocol.h"
+#import "FacebookFriend.h"
 
 @interface FacebookModel : NSObject
 
@@ -25,5 +26,8 @@
 
 -(BOOL)handleOpenUrl:(NSURL *)url sourceApplication:(NSString *)sourceApplication;
 -(void)handleDidBecomeActive;
+
+-(void)getFriendsWithCompletionHandler:(void(^)(NSArray *friends)) handler;
+-(NSData *)getPictureForFriendId:(NSString *)identifier;
 
 @end
