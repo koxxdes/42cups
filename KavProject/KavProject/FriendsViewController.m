@@ -20,6 +20,7 @@
 
 @property (strong, nonatomic) NSOperationQueue *queue;
 
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
 
 @end
 
@@ -31,12 +32,17 @@
     self.networkModel = ((AppDelegate *)[UIApplication sharedApplication].delegate).networkModel;
     FriendsViewController *wSelf = self;
     self.queue = [[NSOperationQueue alloc] init];
+    self.tableView.alpha = 0.0f;
 
     [self.networkModel getFriendsWithCompletionHandler:^(NSArray *friends) {
         if (friends) {
             wSelf.friends = friends;
             dispatch_async(dispatch_get_main_queue(), ^{
                 [wSelf.tableView reloadData];
+                [wSelf.loadingIndicator stopAnimating];
+                [UIView animateWithDuration:0.2 animations:^{
+                    wSelf.tableView.alpha = 1.0;
+                }];
             });
         }
     }];

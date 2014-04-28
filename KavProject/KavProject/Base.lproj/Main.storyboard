@@ -231,6 +231,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="h28-XS-N4f">
+                                <rect key="frame" x="142" y="266" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" red="0.0" green="0.48627454040000001" blue="0.96862751250000001" alpha="1" colorSpace="deviceRGB"/>
+                            </activityIndicatorView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="q5B-gW-EOy">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -283,12 +288,15 @@
                         <constraints>
                             <constraint firstItem="q5B-gW-EOy" firstAttribute="leading" secondItem="gMD-aP-Fq6" secondAttribute="leading" id="3IB-s3-yEI"/>
                             <constraint firstItem="stI-4g-hlJ" firstAttribute="top" secondItem="q5B-gW-EOy" secondAttribute="bottom" id="Qtn-Jx-Hfz"/>
+                            <constraint firstAttribute="centerX" secondItem="h28-XS-N4f" secondAttribute="centerX" id="RiC-ck-RHF"/>
                             <constraint firstAttribute="trailing" secondItem="q5B-gW-EOy" secondAttribute="trailing" id="ckW-15-KNW"/>
+                            <constraint firstAttribute="centerY" secondItem="h28-XS-N4f" secondAttribute="centerY" id="u6B-Ld-z8X"/>
                             <constraint firstItem="q5B-gW-EOy" firstAttribute="top" secondItem="gMD-aP-Fq6" secondAttribute="top" id="wON-wq-1vg"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="contacts" id="Z7h-1E-pvt"/>
                     <connections>
+                        <outlet property="loadingIndicator" destination="h28-XS-N4f" id="1Je-s0-5hb"/>
                         <outlet property="tableView" destination="q5B-gW-EOy" id="FC3-NR-GUl"/>
                     </connections>
                 </viewController>
