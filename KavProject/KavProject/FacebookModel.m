@@ -115,4 +115,29 @@
     [FBAppCall handleDidBecomeActive];
 }
 
+-(void)getFriendsWithCompletionHandler:(void(^)(NSArray *friends)) handler;
+{
+    FBRequest *friendsRequest = [FBRequest requestForMyFriends];
+    NSMutableArray *returnVal = [NSMutableArray array];
+    [friendsRequest startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+        NSArray *friends = nil;
+        if (!error) {
+            friends = result[@"data"];
+            for (NSDictionary<FBGraphUser> *friend in friends) {
+                FacebookFriend *fr = [[FacebookFriend alloc] init];
+                fr.identifier = friend.id;
+                fr.name = friend.name;
+                fr.surname = friend.last_name;
+                [returnVal addObject:fr];
+            }
+        }
+        handler(returnVal);
+    }];
+}
+
+-(NSData *)getPictureForFriendId:(NSString *)identifier
+{
+    return [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large",identifier]]];
+}
+
 @end
