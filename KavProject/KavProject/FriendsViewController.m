@@ -55,6 +55,19 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    FacebookFriend *selectedFriend = self.friends[indexPath.row];
+    UIApplication *app = [UIApplication sharedApplication];
+    NSURL *friendUrl = [NSURL URLWithString:[NSString stringWithFormat:@"fb://profile/%@",selectedFriend.identifier]];
+    if ([app canOpenURL:friendUrl]) {
+        [app openURL:friendUrl];
+    }else{
+        [app openURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://www.facebook.com/%@", selectedFriend.identifier]]];
+    }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
