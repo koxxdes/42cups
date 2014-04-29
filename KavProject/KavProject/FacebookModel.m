@@ -128,6 +128,7 @@
                 fr.identifier = friend.id;
                 fr.name = friend.name;
                 fr.surname = friend.last_name;
+                fr.priority = 0;
                 [returnVal addObject:fr];
             }
         }

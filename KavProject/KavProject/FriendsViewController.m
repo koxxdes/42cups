@@ -14,7 +14,7 @@
 @interface FriendsViewController ()
 
 @property (weak, nonatomic) FacebookModel *networkModel;
-@property (strong, nonatomic) NSArray *friends;
+@property (strong, nonatomic) NSMutableArray *friends;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -25,6 +25,9 @@
 @end
 
 @implementation FriendsViewController
+{
+    BOOL _isEditing;
+}
 
 - (void)viewDidLoad
 {
@@ -36,7 +39,7 @@
 
     [self.networkModel getFriendsWithCompletionHandler:^(NSArray *friends) {
         if (friends) {
-            wSelf.friends = friends;
+            wSelf.friends = [NSMutableArray arrayWithArray:friends];
             dispatch_async(dispatch_get_main_queue(), ^{
                 [wSelf.tableView reloadData];
                 [wSelf.loadingIndicator stopAnimating];
@@ -46,6 +49,7 @@
             });
         }
     }];
+    _isEditing = NO;
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -53,6 +57,17 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)editTapped:(UIBarButtonItem *)sender {
+    _isEditing = !_isEditing;
+    [self.tableView setEditing:_isEditing animated:YES];
+    if (_isEditing) {
+        [sender setTitle:@"Done"];
+    }else{
+        [sender setTitle:@"Edit"];
+        [self recalculateFriendsPriority];
+    }
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -68,6 +83,29 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+-(void)recalculateFriendsPriority
+{
+    NSUInteger count = [self.friends count];
+    for (int i = 0; i < count; i++) {
+        FacebookFriend *friend = self.friends[i];
+        friend.priority = count - i;
+    }
+}
+
+-(void)sortFriendsByPtiority
+{
+    [self.friends sortUsingComparator:^NSComparisonResult(FacebookFriend *obj1, FacebookFriend *obj2) {
+        NSComparisonResult result = NSOrderedSame;
+        if (obj1.priority > obj2.priority) {
+            result = NSOrderedAscending;
+        }
+        if (obj1.priority < obj2.priority) {
+            result = NSOrderedDescending;
+        }
+        return result;
+    }];
+}
+
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -76,6 +114,23 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [self.friends count];
+}
+
+-(BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+-(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewCellEditingStyleNone;
+}
+
+-(void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
+{
+    FacebookFriend *friendToMove = self.friends[sourceIndexPath.row];
+    [self.friends removeObjectAtIndex:sourceIndexPath.row];
+    [self.friends insertObject:friendToMove atIndex:destinationIndexPath.row];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -88,7 +143,6 @@
     FacebookModel *model = self.networkModel;
     if (!friend.picture) {
         cell.picture.alpha = 0.0f;
-        cell.picture.image = nil;
         [self.queue addOperationWithBlock:^{
             UIImage *thumbnailImage;
             
@@ -107,6 +161,12 @@
         cell.picture.image = friend.picture;
     }
     
+    if ([tableView isEditing]) {
+        [cell setShowsReorderControl:YES];
+    }else
+    {
+        [cell setShowsReorderControl:NO];
+    }
     
     return cell;
 }

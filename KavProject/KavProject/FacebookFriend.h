@@ -15,4 +15,6 @@
 @property (strong, nonatomic) NSString *surname;
 @property (strong, nonatomic) UIImage *picture;
 
+@property (nonatomic) NSInteger priority;
+
 @end
